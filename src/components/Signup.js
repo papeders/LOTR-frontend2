@@ -10,11 +10,11 @@ class Signup extends Component{
     
     handleSubmit = (event) => {
         event.preventDefault()
-        if (event.target.email.value != event.target.email2.value) {
+        if (event.target.email.value !== event.target.email2.value) {
             alert("Emails do not match")
             return
         }
-        if (event.target.password.value != event.target.password2.value) {
+        if (event.target.password.value !== event.target.password2.value) {
             alert("Passwords do not match")
             return
         }

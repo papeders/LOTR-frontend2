@@ -6,6 +6,9 @@ class Home extends Component {
         super (props)
     }
 
+componentDidMount(){
+    this.props.searchQuotes()
+}
     render () {
     return (
         <div className="landing-text search-container">

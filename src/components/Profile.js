@@ -11,7 +11,8 @@ class Profile extends Component {
         email: '',
         name: '',
         img: '',
-        quoteList:[],
+        quote: '',
+        favList:[],
     }
 }
 handleChange = (event) => {
@@ -34,19 +35,19 @@ fetchProfile = () => {
         })
 }
 
-fetchQuotes = () => {
+fetchFavs = () => {
     axios.get(`http://localhost:3001/quote/${this.props.username}`)
     .then(resp => {        
         this.setState({
             quoteList:resp.data
         })
-        this.props.updateQuotes(this.state.quoteList)
+        this.props.updateFavs(this.state.favList)
     })    
 }
 
 componentDidMount =() => {
     this.fetchProfile();
-    this.fetchQuotes();
+    this.fetchFavs();
 }
 
 onSubmit = (event) => {
@@ -65,7 +66,7 @@ handleDeleteUser = () => {
 }
 
 render () { 
-const quoteList = this.state.quoteList.map(quote =>{
+const favList = this.state.favList.map(quote =>{
     return(
         <div>
         <Link to={`/quote/${quote.quoteID}`}>
@@ -73,8 +74,8 @@ const quoteList = this.state.quoteList.map(quote =>{
         </Link>                                                              
         </div>
                 
-            )
-        })       
+    )
+})       
     return (
     <div className="info">
         <div className="profile search-container">
@@ -110,6 +111,18 @@ const quoteList = this.state.quoteList.map(quote =>{
                     type="submit" 
                     value="Submit Changes" /> <br></br>
             </form>
+            <button
+                    className="button-head"
+                    type="submit" 
+                    value="Delete Profile" 
+                    onClick={this.handleDeleteUser}>Delete User?
+            </button>
+        </div>
+        <div>
+            <form className="favs search-container">
+                <h1>Favorite List:</h1>
+                {favList} 
+            </form>            
         </div>
     </div>
     )

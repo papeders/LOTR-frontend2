@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import React, { Component } from 'react';
 import axios from 'axios';
+import apiKey from './resources/keys';
 
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
     this.state = {
       name: '',
       username: '',
+      favList:[],
       loggedIn: false
     }
   }
@@ -56,7 +58,19 @@ class App extends Component {
       name: name,
       loggedIn: true
     })
+  }
+  updateFavs = (list) => {
+    this.setState({
+      favList: list
+    })
   } 
+
+  searchQuotes = () => {
+         axios.get(`https://the-one-api.dev/v2/book`)
+        .then(resp => {
+          console.log(resp)
+        })
+  }
 
  
 
@@ -79,7 +93,7 @@ class App extends Component {
           path="/"
           exact render={() => 
           <div> 
-          <Home/> 
+          <Home searchQuotes={this.searchQuotes}/> 
           </div> 
         }
         />
@@ -98,7 +112,8 @@ class App extends Component {
           render={(props) => 
           <Profile {...props} 
           username={this.state.username} 
-          updateState={this.updateState} 
+          updateState={this.updateState}
+          updateFavs={this.updateFavs} 
           onLogout={this.onLogout}/>}
         /> 
         </div>
