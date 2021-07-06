@@ -11,8 +11,14 @@ class Profile extends Component {
         email: '',
         name: '',
         img: '',
+        quoteList:[],
     }
-    }
+}
+handleChange = (event) => {
+    this.setState({
+        [event.target.name]: event.target.value
+    })        
+}
 
 fetchProfile = () => {        
     axios.get(`http://localhost:3001/user/${this.props.username}`)
@@ -28,11 +34,47 @@ fetchProfile = () => {
         })
 }
 
-componentDidMount =() => {
-    this.fetchProfile();
+fetchQuotes = () => {
+    axios.get(`http://localhost:3001/quote/${this.props.username}`)
+    .then(resp => {        
+        this.setState({
+            quoteList:resp.data
+        })
+        this.props.updateQuotes(this.state.quoteList)
+    })    
 }
 
-    render () {        
+componentDidMount =() => {
+    this.fetchProfile();
+    this.fetchQuotes();
+}
+
+onSubmit = (event) => {
+    event.preventDefault()
+    axios.put(`http://localhost:3001/user/${this.props.username}`, this.state)
+        .then(resp => {            
+            this.props.updateState(this.state.username, this.state.name)
+        })
+    
+}
+handleDeleteUser = () => {
+    axios.delete(`http://localhost:3001/user/${this.props.username}`)
+    .then(() =>{
+        this.props.onLogout()
+    })
+}
+
+render () { 
+const quoteList = this.state.quoteList.map(quote =>{
+    return(
+        <div>
+        <Link to={`/quote/${quote.quoteID}`}>
+            {quote.name}
+        </Link>                                                              
+        </div>
+                
+            )
+        })       
     return (
     <div className="info">
         <div className="profile search-container">
