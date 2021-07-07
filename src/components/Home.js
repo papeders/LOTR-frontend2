@@ -7,7 +7,7 @@ class Home extends Component {
     }
 
 componentDidMount(){
-    this.props.searchQuotes()
+    this.props.searchBooks()
 }
     render () {
     return (

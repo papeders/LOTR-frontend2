@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import React, { Component } from 'react';
 import axios from 'axios';
-import apiKey from './resources/keys';
+import SearchStream from './components/SearchStream';
 
 
 class App extends Component {
@@ -16,6 +16,7 @@ class App extends Component {
       name: '',
       username: '',
       favList:[],
+      bookList:[],
       loggedIn: false
     }
   }
@@ -65,14 +66,15 @@ class App extends Component {
     })
   } 
 
-  searchQuotes = () => {
+  searchBooks = (string) => {
          axios.get(`https://the-one-api.dev/v2/book`)
         .then(resp => {
           console.log(resp)
+          this.setState({
+            bookList:resp.data.docs
+          })
         })
-  }
-
- 
+  } 
 
 
   render() {
@@ -93,7 +95,8 @@ class App extends Component {
           path="/"
           exact render={() => 
           <div> 
-          <Home searchQuotes={this.searchQuotes}/> 
+          <Home searchBooks={this.searchBooks}/> 
+          <SearchStream bookList={this.state.bookList}/>
           </div> 
         }
         />
