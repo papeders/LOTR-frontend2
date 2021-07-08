@@ -8,6 +8,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SearchStream from './components/SearchStream';
 
+const token = "sEOk9zqaPd6ghXcWSjL7"
+axios.defaults.baseURL = 'http://localhost:3000/'
+axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
+
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +20,7 @@ class App extends Component {
       name: '',
       username: '',
       favList:[],
-      bookList:[],
+      quoteList:[],
       loggedIn: false
     }
   }
@@ -66,12 +70,12 @@ class App extends Component {
     })
   } 
 
-  searchBooks = (string) => {
-         axios.get(`https://the-one-api.dev/v2/book`)
+  searchQuotes = (string) => {
+         axios.get(`https://the-one-api.dev/v2/quote`)
         .then(resp => {
           console.log(resp)
           this.setState({
-            bookList:resp.data.docs
+            quoteList:resp.data.docs
           })
         })
   } 
@@ -95,8 +99,8 @@ class App extends Component {
           path="/"
           exact render={() => 
           <div> 
-          <Home searchBooks={this.searchBooks}/> 
-          <SearchStream bookList={this.state.bookList}/>
+          <Home searchQuotes={this.searchQuotes}/> 
+          <SearchStream quoteList={this.state.quoteList}/>
           </div> 
         }
         />

@@ -10,12 +10,12 @@ render () {
     return (
         <div>
             <div className="container">
-                {this.props.bookList.map(books => {
+                {this.props.quoteList.map(quotes => {
                      return (
             <Link
-                to={`https://the-one-api.dev/v2/book/${books._id}/chapter`}>
+                to={`character/id`}>
             <div className="each">
-                <p>{books.name}</p>
+                <p>{quotes.dialog}</p>
             </div>
             </Link>               
                 )
