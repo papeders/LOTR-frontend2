@@ -13,9 +13,9 @@ render () {
                 {this.props.quoteList.map(quotes => {
                      return (
             <Link
-                to={`character/id`}>
+                to={`/quote/${quotes._id}`}>
             <div className="each">
-                <p>{quotes.dialog}</p>
+                <p>{quotes.name}</p>
             </div>
             </Link>               
                 )

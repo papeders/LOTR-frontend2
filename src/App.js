@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import React, { Component } from 'react';
 import axios from 'axios';
 import SearchStream from './components/SearchStream';
+import Individual from './components/Individual';
 
 const token = "sEOk9zqaPd6ghXcWSjL7"
 axios.defaults.baseURL = 'http://localhost:3000/'
@@ -71,7 +72,7 @@ class App extends Component {
   } 
 
   searchQuotes = (string) => {
-         axios.get(`https://the-one-api.dev/v2/quote`)
+         axios.get(`https://the-one-api.dev/v2/${string}`)
         .then(resp => {
           console.log(resp)
           this.setState({
@@ -123,6 +124,15 @@ class App extends Component {
           updateFavs={this.updateFavs} 
           onLogout={this.onLogout}/>}
         /> 
+        <Route
+          path="/quote/:id"
+          render={(props) => <Individual 
+          username={this.state.username}
+          {...props} 
+          favList={this.state.favList}
+        />
+        }
+        />
         </div>
       </div>
     );
