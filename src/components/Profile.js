@@ -81,6 +81,7 @@ const favList = this.state.favList.map(quote =>{
         <div className="profile search-container">
             <h1> Profile:</h1>
             <p> {this.state.username} </p>
+            <img src={this.state.img}/>
             <form onSubmit={this.onSubmit}>
                 password:<input 
                     className="button"

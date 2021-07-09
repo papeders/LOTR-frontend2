@@ -96,13 +96,18 @@ render () {
         }            
     </div>
     <div className="quotes">
-    {
-                this.state.quote &&               
-                    this.state.quote.map((quote) => {
+    {this.state.quote &&               
+        this.state.quote.map((quote) => {
             return (
-                <li>
-                {quote.dialog}                        
-                </li>
+                <li> {quote.dialog}
+                {this.checkFavs(this.state.quote._id) 
+
+            
+? <button className="button" 
+onClick={() => this.props.delFavQuote(this.favID)}>Remove from Favorites</button>
+: <button className="button"
+onClick={() => this.props.addFavQuote(this.state.quote._id, this.state.quote.dialog, this.props.username)}>Add to Favorites</button>}
+</li>
             )
         })
         }

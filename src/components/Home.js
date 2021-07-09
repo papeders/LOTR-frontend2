@@ -7,7 +7,7 @@ class Home extends Component {
     }
 
 componentDidMount(){
-    this.props.searchQuotes("character")
+    this.props.searchCharacters("character")
 }
     render () {
     return (

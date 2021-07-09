@@ -21,7 +21,7 @@ class App extends Component {
       name: '',
       username: '',
       favList:[],
-      quoteList:[],
+      charList:[],
       loggedIn: false
     }
   }
@@ -69,14 +69,46 @@ class App extends Component {
     this.setState({
       favList: list
     })
-  } 
+  }
+  // addFavQuote = (_id, dialog, userName) => {
+  //   //add drink to favorites, updates backend api and adds drink to fav list in state.
 
-  searchQuotes = (string) => {
+  //   const newDrink = {name: drinkName, drinkID: drinkId}
+  //   axios.post(`http://localhost:3001/drink/${userName}`, newDrink)
+  //     .then(response => {
+  //       axios.get(`http://localhost:3001/drink/${userName}`)
+  //       .then(resp => {
+            
+  //           this.setState({
+  //               favList:resp.data
+  //           })
+            
+  //       })
+  //     })
+  // }
+
+  // delFavDrink = (drinkId) => {
+  //   //Remove drink from favorites, updates backend api and removes drink from fav list in state.
+
+  //   axios.delete(`http://localhost:3001/drink/${drinkId}`)
+  //   .then(response => {
+  //     axios.get(`http://localhost:3001/drink/${this.state.username}`)
+  //     .then(resp => {
+          
+  //         this.setState({
+  //             favList:resp.data
+  //         })
+          
+  //     })
+  //   })
+  // } 
+
+  searchCharacters = (string) => {
          axios.get(`https://the-one-api.dev/v2/${string}`)
         .then(resp => {
           console.log(resp)
           this.setState({
-            quoteList:resp.data.docs
+            charList:resp.data.docs
           })
         })
   } 
@@ -100,8 +132,8 @@ class App extends Component {
           path="/"
           exact render={() => 
           <div> 
-          <Home searchQuotes={this.searchQuotes}/> 
-          <SearchStream quoteList={this.state.quoteList}/>
+          <Home searchCharacters={this.searchCharacters}/> 
+          <SearchStream charList={this.state.charList}/>
           </div> 
         }
         />

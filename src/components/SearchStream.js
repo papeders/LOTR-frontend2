@@ -10,12 +10,12 @@ render () {
     return (
         <div>
             <div className="container">
-                {this.props.quoteList.map(quotes => {
+                {this.props.charList.map(chars => {
                      return (
             <Link
-                to={`/quote/${quotes._id}`}>
+                to={`/quote/${chars._id}`}>
             <div className="each">
-                <p>{quotes.name}</p>
+                <p>{chars.name}</p>
             </div>
             </Link>               
                 )
