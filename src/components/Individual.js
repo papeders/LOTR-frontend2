@@ -8,21 +8,36 @@ class Individual extends Component {
         super (props)
 
         this.state= {
-            quote:[],
+            char:[],
+            recievedChar: false,
+            quote: [],
             recievedQuote: false,
-            _id: ''
         }
 
     }
-    componentDidMount = () => {
+    getInfo = () =>{
         axios.get(`https://the-one-api.dev/v2/character/${this.props.match.params.id}`)
         .then(response => {
             
             this.setState({
-                quote:response.data.docs[0],
-                recievedQuote:true
+                char:response.data.docs[0],
+                recievedChar:true
             })
         })
+    }
+    getQuote = () =>{
+        axios.get(`https://the-one-api.dev/v2/character/${this.props.match.params.id}/quote`)
+        .then(response => {
+            console.log(response)
+            this.setState({
+                quote:response.data.docs,
+                recievedQuote: true
+            })
+        })
+    }
+    componentDidMount = () => {
+    this.getInfo()
+    this.getQuote()
     }
     
     favID = '' //storing favID--from backend API--here allows to manipulate DB without external API call.
@@ -33,7 +48,7 @@ class Individual extends Component {
 
         for (let i=0; i < this.props.favList.length; i++) {
             
-            if (this.props.favList[i].quoteID == id) {
+            if (this.props.favList[i].charID == id) {
                 this.favID = this.props.favList[i].id
                 return true
             }
@@ -41,84 +56,58 @@ class Individual extends Component {
         return false
     }
 
-    render () {
-        
-        
+render () {         
     return (
-    <div className="quoteInfo">
-        {this.state.recievedQuote && 
-        <div>
-            <h1>{this.state.quote.name} </h1> <br></br>
-        <div className="container">    
-            <div className="informationContainer">
-
-                <h3 className="quoteTitle">Information:</h3>
-                <ul className="ingredients"> 
-                    {this.state.quote.gender != null &&
-                    <li>
-                        Gender: {this.state.quote.gender}                       
-                    </li>
-                    }
-                    {this.state.quote.race != null &&
-                    <li>
-                        Race: {this.state.quote.race}                       
-                    </li>
-                    }
-                     {this.state.quote.spouse != null &&
-                    <li>
-                          {this.state.quote.spouse}                    
-                    </li>
-                    }
-                    {this.state.quote.realm != null ||
-                    <li>
-                        <label>Realm:</label>  {this.state.quote.realm}                       
-                    </li>
-                    }
-                    {this.state.quote.wikiUrl != null &&
-                    <a href= "">
-                        {this.state.quote.wikiUrl}                       
-                    </a>
-                    }                                 
-                </ul> 
-                <table>
-                    <tr>
-                        <th>Gender</th>
-                        <th>Spouse</th>
-                    </tr>
-                    <tr>
-                    {this.state.quote.gender != null &&
+<div>
+    <div className="charInfo">
+        {this.state.recievedChar && 
+    <div>
+        <h1>{this.state.char.name} </h1> <br></br>
+    <div className="infoContainer">    
+            <h3>Character Informtaion:</h3>
+            <table>
+                <tr>
+                    <th>Gender</th>
+                    <th>Race</th>
+                    <th>Realm</th>
+                    <th>Spouse</th>
+                    <th>Birth</th>
+                    <th>Death</th>
+                    <th>Hair</th>
+                    <th>Height</th>
+                    <th>wikiUrl</th>
+                </tr>
+                <tr>                    
+                    <td> {this.state.char.gender} </td>
+                    <td> {this.state.char.race} </td>
+                    <td> {this.state.char.realm} </td>                    
+                    <td> {this.state.char.spouse} </td>
+                    <td> {this.state.char.birth} </td>
+                    <td> {this.state.char.death} </td>
+                    <td> {this.state.char.hair} </td>                    
+                    <td> {this.state.char.height} </td>
                     <td>
-                     {this.state.quote.gender}                       
-                    </td>
-                    }
-                    </tr>
-                    <tr>
-                    {this.state.quote.spouse != null &&
-                    <td>
-                     {this.state.quote.spouse}                       
-                    </td>
-                    }
-                    </tr>
-
-                </table>
-            </div>
-            <div className="instructionContainer">
-                <h3 className="quoteTitle">Instructions:</h3>
-                <p className="instructions">{this.state.quote.strInstructions}</p>
-            </div> 
-        </div> 
-
-            </div>
-            }
-            {this.checkFavs(this.state.quote.idQuote) 
-
-            
-            ? <button className="button" 
-            onClick={() => this.props.delFavQuote(this.favID)}>Remove from Favorites</button>
-            : <button className="button"
-            onClick={() => this.props.addFavQuote(this.state.quote.idQuote, this.props.username)}>Add to Favorites</button>}
-            
-        </div>
+                        <Link> {this.state.char.wikiUrl} </Link>
+                    </td>            
+                </tr>              
+            </table>
+    </div>    
+    </div>
+        }            
+    </div>
+    <div className="quotes">
+    {
+                this.state.quote &&               
+                    this.state.quote.map((quote) => {
+            return (
+                <li>
+                {quote.dialog}                        
+                </li>
+            )
+        })
+        }
+    </div>
+</div>
     )
 }
 }
