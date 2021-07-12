@@ -17,7 +17,7 @@ class Header extends Component{
                 <div className="header">
                     <div className="head-left">
                 <h1 className="title">One Ring...</h1>
-                <Link to="/search">Search by movie:</Link>
+                <Link to="/">Search by character:</Link>
                 <br></br>
                 <Link to={`/profile/${this.props.username}`}>Profile</Link>
             </div>

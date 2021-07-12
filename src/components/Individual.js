@@ -48,7 +48,7 @@ class Individual extends Component {
 
         for (let i=0; i < this.props.favList.length; i++) {
             
-            if (this.props.favList[i].charID == id) {
+            if (this.props.favList[i]._id == id) {
                 this.favID = this.props.favList[i].id
                 return true
             }
@@ -100,13 +100,13 @@ render () {
         this.state.quote.map((quote) => {
             return (
                 <li> {quote.dialog}
-                {this.checkFavs(this.state.quote._id) 
+                {this.checkFavs(quote._id) 
 
             
 ? <button className="button" 
-onClick={() => this.props.delFavQuote(this.favID)}>Remove from Favorites</button>
+onClick={() => this.props.delFavQuote(this.favID)}>Decided I don NOT love this quote.</button>
 : <button className="button"
-onClick={() => this.props.addFavQuote(this.state.quote._id, this.state.quote.dialog, this.props.username)}>Add to Favorites</button>}
+onClick={() => this.props.addFavQuote(quote._id, quote.dialog, this.props.username)}>I love this quote!</button>}
 </li>
             )
         })

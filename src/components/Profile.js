@@ -69,9 +69,8 @@ render () {
 const favList = this.state.favList.map(quote =>{
     return(
         <div>
-        <Link to={`/quote/${quote.quoteID}`}>
-            {quote.name}
-        </Link>                                                              
+            {quote.dialog}
+                                                                     
         </div>
                 
     )

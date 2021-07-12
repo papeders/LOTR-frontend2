@@ -70,38 +70,38 @@ class App extends Component {
       favList: list
     })
   }
-  // addFavQuote = (_id, dialog, userName) => {
-  //   //add drink to favorites, updates backend api and adds drink to fav list in state.
+  addFavQuote = (_id, dialog, username) => {
+    //add drink to favorites, updates backend api and adds drink to fav list in state.
 
-  //   const newDrink = {name: drinkName, drinkID: drinkId}
-  //   axios.post(`http://localhost:3001/drink/${userName}`, newDrink)
-  //     .then(response => {
-  //       axios.get(`http://localhost:3001/drink/${userName}`)
-  //       .then(resp => {
+    const newQuote = {dialog: dialog, quoteID: _id}
+    axios.post(`http://localhost:3001/quote/${username}`, newQuote)
+      .then(response => {
+        axios.get(`http://localhost:3001/quote/${username}`)
+        .then(resp => {
             
-  //           this.setState({
-  //               favList:resp.data
-  //           })
+            this.setState({
+                favList:resp.data
+            })
             
-  //       })
-  //     })
-  // }
+        })
+      })
+  }
 
-  // delFavDrink = (drinkId) => {
-  //   //Remove drink from favorites, updates backend api and removes drink from fav list in state.
+  delFavQuote = (_id) => {
+    //Remove drink from favorites, updates backend api and removes drink from fav list in state.
 
-  //   axios.delete(`http://localhost:3001/drink/${drinkId}`)
-  //   .then(response => {
-  //     axios.get(`http://localhost:3001/drink/${this.state.username}`)
-  //     .then(resp => {
+    axios.delete(`http://localhost:3001/quote/${_id}`)
+    .then(response => {
+      axios.get(`http://localhost:3001/quote/${this.state.username}`)
+      .then(resp => {
           
-  //         this.setState({
-  //             favList:resp.data
-  //         })
+          this.setState({
+              favList:resp.data
+          })
           
-  //     })
-  //   })
-  // } 
+      })
+    })
+  } 
 
   searchCharacters = (string) => {
          axios.get(`https://the-one-api.dev/v2/${string}`)
@@ -162,6 +162,8 @@ class App extends Component {
           username={this.state.username}
           {...props} 
           favList={this.state.favList}
+          addFavQuote={this.addFavQuote}
+          delFavQuote={this.delFavQuote}
         />
         }
         />
