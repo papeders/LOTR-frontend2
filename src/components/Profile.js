@@ -35,19 +35,8 @@ fetchProfile = () => {
         })
 }
 
-fetchFavs = () => {
-    axios.get(`http://localhost:3001/quote/${this.props.username}`)
-    .then(resp => {        
-        this.setState({
-            quoteList:resp.data
-        })
-        this.props.updateFavs(this.state.favList)
-    })    
-}
-
 componentDidMount =() => {
     this.fetchProfile();
-    this.fetchFavs();
 }
 
 onSubmit = (event) => {
@@ -66,15 +55,6 @@ handleDeleteUser = () => {
 }
 
 render () { 
-const favList = this.state.favList.map(quote =>{
-    return(
-        <div>
-            {quote.dialog}
-                                                                     
-        </div>
-                
-    )
-})       
     return (
     <div className="info">
         <div className="profile search-container">
@@ -117,12 +97,6 @@ const favList = this.state.favList.map(quote =>{
                     value="Delete Profile" 
                     onClick={this.handleDeleteUser}>Delete User?
             </button>
-        </div>
-        <div>
-            <form className="favs search-container">
-                <h1>Favorite List:</h1>
-                {favList} 
-            </form>            
         </div>
     </div>
     )

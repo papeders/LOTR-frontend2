@@ -17,14 +17,14 @@ class Header extends Component{
                 <div className="header">
                     <div className="head-left">
                 <h1 className="title">One Ring...</h1>
-                <Link to="/">Search by character:</Link>
+                <Link to="/search">Search by character:</Link>
                 <br></br>
                 <Link to={`/profile/${this.props.username}`}>Profile</Link>
             </div>
         <div className="head-right">
             <div className="login-container">
-                <h4 className="title">Welcome, {this.props.name}</h4>
-                
+                <h4 className="title">Welcome, {this.props.name}!</h4>
+                <img src={this.props.img} alt='nothing to show'/>
                 <Link onClick={this.props.onLogout}>Logout</Link>
             </div>
         </div>

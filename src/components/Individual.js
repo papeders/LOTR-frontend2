@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import SearchStream from "./SearchStream";
+
 
 class Individual extends Component {
     constructor (props) {
@@ -39,22 +39,6 @@ class Individual extends Component {
     this.getInfo()
     this.getQuote()
     }
-    
-    favID = '' //storing favID--from backend API--here allows to manipulate DB without external API call.
-    
-    checkFavs = (id) => {
-        //checks to see if drink is in fav List by external API drink ID.
-        //returns true or false.
-
-        for (let i=0; i < this.props.favList.length; i++) {
-            
-            if (this.props.favList[i]._id == id) {
-                this.favID = this.props.favList[i].id
-                return true
-            }
-        }
-        return false
-    }
 
 render () {         
     return (
@@ -64,7 +48,6 @@ render () {
     <div>
         <h1>{this.state.char.name} </h1> <br></br>
     <div className="infoContainer">    
-            <h3>Character Informtaion:</h3>
             <table>
                 <tr>
                     <th>Gender</th>
@@ -100,13 +83,6 @@ render () {
         this.state.quote.map((quote) => {
             return (
                 <li> {quote.dialog}
-                {this.checkFavs(quote._id) 
-
-            
-? <button className="button" 
-onClick={() => this.props.delFavQuote(this.favID)}>Decided I don NOT love this quote.</button>
-: <button className="button"
-onClick={() => this.props.addFavQuote(quote._id, quote.dialog, this.props.username)}>I love this quote!</button>}
 </li>
             )
         })
@@ -116,5 +92,5 @@ onClick={() => this.props.addFavQuote(quote._id, quote.dialog, this.props.userna
     )
 }
 }
-
+<iframe width="300" height="50" frameBorder="0" src="http://www.moviesoundclips.net/embed.php?id=46550e46c69cdda73f649d20f7b2ab39" style="overflow-y: hidden;border:0px;" scrolling="no" seamless="seamless"></iframe>
 export default Individual;

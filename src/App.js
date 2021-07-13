@@ -14,12 +14,14 @@ axios.defaults.baseURL = 'http://localhost:3000/'
 axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
 
 
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       name: '',
       username: '',
+      img: '',
       favList:[],
       charList:[],
       loggedIn: false
@@ -37,6 +39,7 @@ class App extends Component {
         this.setState({
           name: response.data.name,
           username: response.data.username,
+          img: response.data.img,
           loggedIn: true
         })
       this.props.history.push(`/profile/${response.data.username}`)
@@ -51,7 +54,6 @@ class App extends Component {
     this.setState({
       name: '',
       username: '',
-      favList: [],
       loggedIn: false
     })
     this.props.history.push('/')
@@ -65,43 +67,7 @@ class App extends Component {
       loggedIn: true
     })
   }
-  updateFavs = (list) => {
-    this.setState({
-      favList: list
-    })
-  }
-  addFavQuote = (_id, dialog, username) => {
-    //add drink to favorites, updates backend api and adds drink to fav list in state.
 
-    const newQuote = {dialog: dialog, quoteID: _id}
-    axios.post(`http://localhost:3001/quote/${username}`, newQuote)
-      .then(response => {
-        axios.get(`http://localhost:3001/quote/${username}`)
-        .then(resp => {
-            
-            this.setState({
-                favList:resp.data
-            })
-            
-        })
-      })
-  }
-
-  delFavQuote = (_id) => {
-    //Remove drink from favorites, updates backend api and removes drink from fav list in state.
-
-    axios.delete(`http://localhost:3001/quote/${_id}`)
-    .then(response => {
-      axios.get(`http://localhost:3001/quote/${this.state.username}`)
-      .then(resp => {
-          
-          this.setState({
-              favList:resp.data
-          })
-          
-      })
-    })
-  } 
 
   searchCharacters = (string) => {
          axios.get(`https://the-one-api.dev/v2/${string}`)
@@ -111,7 +77,8 @@ class App extends Component {
             charList:resp.data.docs
           })
         })
-  } 
+  }
+
 
 
   render() {
@@ -120,6 +87,7 @@ class App extends Component {
 
         <Header 
           name={this.state.name} 
+          img={this.state.img}
           username={this.state.username} 
           loggedIn={this.state.loggedIn} 
           onLogin={this.onLogin}
@@ -132,13 +100,10 @@ class App extends Component {
           path="/"
           exact render={() => 
           <div> 
-          <Home searchCharacters={this.searchCharacters}/> 
-          <SearchStream charList={this.state.charList}/>
+          <Home/> 
           </div> 
         }
-        />
-
-      
+        />      
         <Route
           path ="/signup"
           render={(props) => <Signup 
@@ -153,17 +118,24 @@ class App extends Component {
           <Profile {...props} 
           username={this.state.username} 
           updateState={this.updateState}
-          updateFavs={this.updateFavs} 
           onLogout={this.onLogout}/>}
         /> 
+        <Route
+          path="/search"
+          render={(props) => 
+          <div>
+          <SearchStream {...props}
+          charList={this.state.charList}
+          searchCharacters={this.searchCharacters}/>
+          
+          </div>
+          }
+        />
         <Route
           path="/quote/:id"
           render={(props) => <Individual 
           username={this.state.username}
           {...props} 
-          favList={this.state.favList}
-          addFavQuote={this.addFavQuote}
-          delFavQuote={this.delFavQuote}
         />
         }
         />
