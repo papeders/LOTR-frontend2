@@ -70,7 +70,7 @@ render () {
                     <td> {this.state.char.hair} </td>                    
                     <td> {this.state.char.height} </td>
                     <td>
-                        <Link> {this.state.char.wikiUrl} </Link>
+                        <a href= {this.state.char.wikiUrl}> Check out my WIKI! </a>
                     </td>            
                 </tr>              
             </table>

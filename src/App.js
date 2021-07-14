@@ -98,9 +98,11 @@ class App extends Component {
         
         <Route
           path="/"
-          exact render={() => 
+          exact render={(props) => 
           <div> 
-          <Home/> 
+          <Home {...props}
+          charList={this.state.charList}
+          searchCharacters={this.searchCharacters}/> 
           </div> 
         }
         />      

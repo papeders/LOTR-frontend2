@@ -24,7 +24,7 @@ class Header extends Component{
         <div className="head-right">
             <div className="login-container">
                 <h4 className="title">Welcome, {this.props.name}!</h4>
-                <img src={this.props.img} alt='nothing to show'/>
+                <img className="pic" src={this.props.img} alt='nothing to show'/>
                 <Link onClick={this.props.onLogout}>Logout</Link>
             </div>
         </div>

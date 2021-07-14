@@ -1,3 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Fredericka+the+Great&display=swap');
 .App {
   text-align: center;
+  font-family: 'Fredericka the Great', cursive; 
+}
+
+.info{
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+}
+.mainImg {
+  width: 300px;
+  border-radius: 100px;
+  padding-bottom: 10px;
+}
+.pic{
+  border-radius: 200px;
+  width: 100px;
+  height: 100px
+}
+
+.button {
+  border-radius: 3px;
+  border: 1px solid black;
+  font-family: 'Fredericka the Great', cursive; 
+  font-size: 12pt;
+  margin: 5px;
+}
+.button-head {
+  border-radius: 3px;
+  border: 1px solid black;
+  font-family: 'Fredericka the Great', cursive; 
+  font-weight: bold;
+  font-size: 12pt;
+}
+h1{
+  margin: 0;
+}
+.profile {
+  display: flex;
 }

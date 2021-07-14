@@ -57,37 +57,41 @@ handleDeleteUser = () => {
 render () { 
     return (
     <div className="info">
-        <div className="profile search-container">
-            <h1> Profile:</h1>
-            <p> {this.state.username} </p>
-            <img src={this.state.img}/>
-            <form onSubmit={this.onSubmit}>
-                password:<input 
+        <div className="entireProfile">
+            <h1> {this.state.username} </h1>
+            <img className="mainImg" src={this.state.img}/>
+            <form className= "profile"
+                  onSubmit={this.onSubmit}>
+                    <label for ="password"> Password:</label>
+                    <input 
                     className="button"
                     type="password"  
                     name="password" 
                     value={this.state.password} 
                     onChange={this.handleChange}/> <br></br>
-                name:<input 
+                    <label for ="name"> Name:</label>
+                    <textarea 
                     className="button"
                     type="text" 
                     name="name" 
                     value={this.state.name} 
                     onChange={this.handleChange}/> <br></br>
-                email:<input 
+                    <label for ="email"> E-mail:</label>
+                    <textarea 
                     className="button"
                     type="text" 
                     name="email" 
                     value={this.state.email} 
                     onChange={this.handleChange}/> <br></br>
-                img:<input 
+                    <label for ="img"> Image:</label>
+                    <textarea 
                     className="button"
                     type="text" 
                     name="img" 
                     value={this.state.img} 
                     onChange={this.handleChange}/> <br></br>
                 <input 
-                    className="button"
+                    className="button-head"
                     type="submit" 
                     value="Submit Changes" /> <br></br>
             </form>
