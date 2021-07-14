@@ -5,10 +5,10 @@
 }
 
 .info{
-  display: flex;
   border: 1px solid black;
   border-radius: 5px;
-  margin: 10px;
+  float: left;
+  width: fit-content;
 }
 .mainImg {
   width: 300px;
@@ -34,10 +34,40 @@
   font-family: 'Fredericka the Great', cursive; 
   font-weight: bold;
   font-size: 12pt;
+  margin: 5px;
 }
 h1{
   margin: 0;
 }
 .profile {
   display: flex;
+  flex-direction: column;
+}
+label{
+  display: flex;
+}
+.content {
+  margin-top: 250px;
+}
+.header {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: goldenrod;
+  height: 200px;
+
+}
+.header-container {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+.head-right{
+ margin-right: 25px;
+ text-align: right;
+}
+.head-left{
+  margin-left: 25px;
+  
 }

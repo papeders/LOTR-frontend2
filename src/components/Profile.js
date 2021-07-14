@@ -70,31 +70,33 @@ render () {
                     value={this.state.password} 
                     onChange={this.handleChange}/> <br></br>
                     <label for ="name"> Name:</label>
-                    <textarea 
+                    <input
                     className="button"
                     type="text" 
                     name="name" 
                     value={this.state.name} 
                     onChange={this.handleChange}/> <br></br>
                     <label for ="email"> E-mail:</label>
-                    <textarea 
+                    <input 
                     className="button"
                     type="text" 
                     name="email" 
                     value={this.state.email} 
                     onChange={this.handleChange}/> <br></br>
                     <label for ="img"> Image:</label>
-                    <textarea 
+                    <textarea rows="4"
                     className="button"
                     type="text" 
                     name="img" 
                     value={this.state.img} 
                     onChange={this.handleChange}/> <br></br>
-                <input 
+               
+            </form>
+            <button 
                     className="button-head"
                     type="submit" 
-                    value="Submit Changes" /> <br></br>
-            </form>
+                    value="Submit Changes"> Submit Updates 
+                </button> <br></br>
             <button
                     className="button-head"
                     type="submit" 
