@@ -30,8 +30,8 @@
 }
 .button:hover {
   background-color: white;
-  color: rgb(201, 99, 116);
-  border: 1px solid rgb(201, 99, 116);
+  color: rgba(255,0,0, .70);
+  border: 1px solid rgba(255,0,0, .70);
   border-radius: 5px;  
 }
 .button-head {
@@ -44,7 +44,7 @@
 }
 .button-head:hover {
   background-color: white;
-  color: rgb(201, 99, 116);
+  color: rgba(255,0,0, .70);
   border: 1px solid rgb(201, 99, 116);
   border-radius: 5px;  
 }
@@ -64,15 +64,17 @@ label{
   display: flex;
 }
 .content {
-  margin-top: 200px;
+  margin-top: 180px;
 }
 .header {  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
+  background-color: rgba(0,0,0, .90);
   color:white;
   height: 180px;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 .header-container {
@@ -143,5 +145,33 @@ li{
   margin-right: auto;
   border-radius: 5px;
   list-style-type: none;
-
+}
+li:hover{
+  background-color:white;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 96vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  list-style-type: none;
+}
+.home {
+  display: block;
+  position: absolute;
+}
+.entireHome{
+  background-image: url("https://media.contentapi.ea.com/content/dam/gin/images/2017/01/lotr-the-battle-for-middle-earth-keyart-min.jpg.adapt.crop16x9.575p.jpg");
+  background-size: 100%;
+  background-repeat:   no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center; 
+  margin-left: auto;
+  margin-right: auto;
 }

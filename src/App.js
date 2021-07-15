@@ -101,7 +101,6 @@ class App extends Component {
           exact render={(props) => 
           <div> 
           <Home {...props}
-          charList={this.state.charList}
           searchCharacters={this.searchCharacters}/> 
           </div> 
         }

@@ -43,6 +43,9 @@ class Individual extends Component {
 render () {         
     return (
 <div>
+    <Link to="/">
+        <img src="https://cdn.dribbble.com/users/24711/screenshots/1476445/mordor_animation_2x.gif" height="60px"/>
+    </Link>
     <div className="charInfo">
         {this.state.recievedChar && 
     <div>
@@ -92,5 +95,4 @@ render () {
     )
 }
 }
-<iframe width="300" height="50" frameBorder="0" src="http://www.moviesoundclips.net/embed.php?id=46550e46c69cdda73f649d20f7b2ab39" style="overflow-y: hidden;border:0px;" scrolling="no" seamless="seamless"></iframe>
 export default Individual;

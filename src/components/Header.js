@@ -27,7 +27,7 @@ class Header extends Component{
                 <br></br>
                 <Link to={`/profile/${this.props.username}`}>Profile</Link>
                 <br></br>
-                <Link onClick={this.props.onLogout}>Logout</Link>
+                <Link onClick={this.props.onLogout}>Logout</Link> <br></br>
             </div>
         </div>
                 </div>  
@@ -60,7 +60,8 @@ class Header extends Component{
                 </form>
             </div>
             <Link
-                to="/signup">Sign Up!</Link>
+                to="/signup">Sign Up!
+            </Link> <br></br>
         </div>
                 </div>    
         }

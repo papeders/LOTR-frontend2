@@ -46,7 +46,9 @@ class Signup extends Component{
 
 render () {
     return(
+<div>
         <div className="signup-container">
+            <br></br>
             <img className="headerPic" src= "https://reactiongifs.me/wp-content/uploads/2020/03/Nobody-Likes-You-Lord-of-the-Rings.gif"/>
             <div className="signupInfo search-container">
             <h2>Create a new account.</h2>
@@ -91,11 +93,14 @@ render () {
                 <input
                     className="button-head"
                     type="submit"
-                    value="Sign Up!"/>                  
-
+                    value="Sign Up!"/>                                
             </form>
             </div>
         </div>
+        <Link to="/">
+        <img src="https://cdn.dribbble.com/users/24711/screenshots/1476445/mordor_animation_2x.gif" height="60px"/>
+    </Link>
+</div>
     )
 }
 }

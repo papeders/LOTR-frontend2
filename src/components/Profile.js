@@ -104,6 +104,9 @@ render () {
                     onClick={this.handleDeleteUser}>Delete User?
             </button>
         </div>
+        <Link to="/">
+        <img src="https://cdn.dribbble.com/users/24711/screenshots/1476445/mordor_animation_2x.gif" height="60px"/>
+    </Link>
     </div>
     )
 }
