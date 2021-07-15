@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import oring from '../Images/oring.jpg'
 
 
 class Header extends Component{
@@ -17,14 +18,15 @@ class Header extends Component{
                 <div className="header">
                     <div className="head-left">
                 <h1 className="title">One Ring...</h1>
-                <Link to="/search">Search by character:</Link>
-                <br></br>
-                <Link to={`/profile/${this.props.username}`}>Profile</Link>
+                <img className="headerPic" src={oring} alt="" height="100"/>
             </div>
         <div className="head-right">
             <div className="login-container">
-                <h4 className="title">Welcome, {this.props.name}!</h4>
-                <img className="pic" src={this.props.img} alt='nothing to show'/>
+                <h3 className="title">Welcome, {this.props.name}!</h3>
+                <Link to="/search">Search by character:</Link>
+                <br></br>
+                <Link to={`/profile/${this.props.username}`}>Profile</Link>
+                <br></br>
                 <Link onClick={this.props.onLogout}>Logout</Link>
             </div>
         </div>
@@ -35,6 +37,7 @@ class Header extends Component{
                 <div className="header">
                     <div className="head-left">
                 <h1 className="title">One Ring...</h1>
+                <img className="headerPic" src="https://www.reactiongifs.us/wp-content/uploads/2013/10/no_power_here_lotr.gif"alt=""/>
                 
             </div>
         <div className="head-right">

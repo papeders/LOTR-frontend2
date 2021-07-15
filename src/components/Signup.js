@@ -47,6 +47,7 @@ class Signup extends Component{
 render () {
     return(
         <div className="signup-container">
+            <img className="headerPic" src= "https://reactiongifs.me/wp-content/uploads/2020/03/Nobody-Likes-You-Lord-of-the-Rings.gif"/>
             <div className="signupInfo search-container">
             <h2>Create a new account.</h2>
             

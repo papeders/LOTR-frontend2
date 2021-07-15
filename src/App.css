@@ -2,42 +2,59 @@
 .App {
   text-align: center;
   font-family: 'Fredericka the Great', cursive; 
+  font-size: 14pt;
 }
 
-.info{
-  border: 1px solid black;
-  border-radius: 5px;
-  float: left;
-  width: fit-content;
+.info {
+  width:fit-content;
+  text-align: center;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 .mainImg {
   width: 300px;
   border-radius: 100px;
   padding-bottom: 10px;
 }
-.pic{
-  border-radius: 200px;
-  width: 100px;
-  height: 100px
+.headerPic {
+  border-radius: 5px;
 }
-
 .button {
   border-radius: 3px;
   border: 1px solid black;
   font-family: 'Fredericka the Great', cursive; 
-  font-size: 12pt;
+  font-size: 16pt;
   margin: 5px;
+}
+.button:hover {
+  background-color: white;
+  color: rgb(201, 99, 116);
+  border: 1px solid rgb(201, 99, 116);
+  border-radius: 5px;  
 }
 .button-head {
   border-radius: 3px;
   border: 1px solid black;
   font-family: 'Fredericka the Great', cursive; 
   font-weight: bold;
-  font-size: 12pt;
+  font-size: 16pt;
   margin: 5px;
 }
+.button-head:hover {
+  background-color: white;
+  color: rgb(201, 99, 116);
+  border: 1px solid rgb(201, 99, 116);
+  border-radius: 5px;  
+}
 h1{
-  margin: 0;
+  margin: 4px;
+  font-weight: lighter;
+}
+h3{
+  font-weight: lighter;
+  margin: 3px;
 }
 .profile {
   display: flex;
@@ -47,15 +64,15 @@ label{
   display: flex;
 }
 .content {
-  margin-top: 250px;
+  margin-top: 200px;
 }
-.header {
-  
+.header {  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: goldenrod;
-  height: 200px;
+  background-color: black;
+  color:white;
+  height: 180px;
 
 }
 .header-container {
@@ -70,4 +87,61 @@ label{
 .head-left{
   margin-left: 25px;
   
+}
+.signupInfo {
+  width:fit-content;
+  text-align: right;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+a{
+  color: rgb(186,196,188);
+  text-decoration: none;
+}
+a:hover{
+  font-weight: bold;
+}
+.each{
+  color:red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 22px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 1600vh;
+  color: White;
+  padding: 5px;
+  margin: 5px;
+  align-items: center;  
+}
+table {
+  border: 1px solid black;
+  width: 98vw;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  border-radius: 5px;
+}
+th{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+li{
+  background-color:rgba(49,75,93, .20);
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 96vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  list-style-type: none;
+
 }

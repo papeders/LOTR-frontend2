@@ -16,20 +16,20 @@ class Home extends Component {
         .then(response =>{
             console.log(response)
             this.setState({
-                charList:response.data.docs[0],
+                charList:response.data.docs,
             })
         })
     }
     componentDidMount() {
-        this.getCharacter("5cd99d4bde30eff6ebccfc15")
-        this.getCharacter("5cd99d4bde30eff6ebccfc07")
-        this.getCharacter("5cd99d4bde30eff6ebccfc38")
-        this.getCharacter("5cd99d4bde30eff6ebccfd81")
-        this.getCharacter("5cd99d4bde30eff6ebccfe9e")
-        this.getCharacter("5cd99d4bde30eff6ebccfea4")
+        // this.getCharacter("5cd99d4bde30eff6ebccfc15")
+        // this.getCharacter("5cd99d4bde30eff6ebccfc07")
+        // this.getCharacter("5cd99d4bde30eff6ebccfc38")
+        // this.getCharacter("5cd99d4bde30eff6ebccfd81")
+        // this.getCharacter("5cd99d4bde30eff6ebccfe9e")
+        // this.getCharacter("5cd99d4bde30eff6ebccfea4")
         this.getCharacter("5cd99d4bde30eff6ebccfea0")
-        this.getCharacter("5cd99d4bde30eff6ebccfea5")
-        this.getCharacter("5cd9d5a0844dc4c55e47afef")
+        // this.getCharacter("5cd99d4bde30eff6ebccfea5")
+        // this.getCharacter("5cd9d5a0844dc4c55e47afef")
 
     }
 
@@ -38,27 +38,22 @@ class Home extends Component {
         <div className="entireHome">
             <div className="landing-text search-container">
                 <h1> Welcome to One Quote...</h1>
-                <p>Login or sign up above to search the library.</p>         
+                <p>Login or sign up above to search the library.</p>  
+                <p> Check out Gandalfs page:</p>       
             </div>
             <div className="homePerson">
             <div className="container">
-                {this.props.charList.map(char => {
+                {this.state.charList.map((charList) => {
                      return (
             <Link
-                to={`/quote/${this.state.charList._id}`}>
+                to={`/quote/${charList._id}`}>
             <div className="each">
-                <p>{this.state.charList.name}</p>
+                <button className= "button-head">{charList.name}</button>
             </div>
             </Link>               
                 )
             })}
-              </div> 
-                        {/* <Link 
-                        to={`/quote/${this.state.charList._id}`}>
-                        <button>{this.state.charList.name}</button>                    
-                        </Link>              */}
-          
-                
+              </div>    
             </div>
                 
         </div>
