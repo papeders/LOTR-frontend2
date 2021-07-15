@@ -35,6 +35,6 @@ The One Quote App is a React based application that features Lord of the Rings i
 To install:
 Download all components and run npm install. <br>
 Download and install backend API: <a href="https://github.com/papeders/LOTR-backend">here</a>.
-
+Download and install frontend API: <a href="https://github.com/papeders/LOTR-frontend2>here</a>.
 
 
