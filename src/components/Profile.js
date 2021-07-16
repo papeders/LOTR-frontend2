@@ -64,45 +64,44 @@ render () {
                   onSubmit={this.onSubmit}>
                     <label for ="password"> Password:</label>
                     <input 
-                    className="button"
-                    type="password"  
-                    name="password" 
-                    value={this.state.password} 
-                    onChange={this.handleChange}/> <br></br>
+                        className="button"
+                        type="password"  
+                        name="password" 
+                        value={this.state.password} 
+                        onChange={this.handleChange}/> <br></br>
                     <label for ="name"> Name:</label>
                     <input
-                    className="button"
-                    type="text" 
-                    name="name" 
-                    value={this.state.name} 
-                    onChange={this.handleChange}/> <br></br>
+                        className="button"
+                        type="text" 
+                        name="name" 
+                        value={this.state.name} 
+                        onChange={this.handleChange}/> <br></br>
                     <label for ="email"> E-mail:</label>
                     <input 
-                    className="button"
-                    type="text" 
-                    name="email" 
-                    value={this.state.email} 
-                    onChange={this.handleChange}/> <br></br>
+                        className="button"
+                        type="text" 
+                        name="email" 
+                        value={this.state.email} 
+                        onChange={this.handleChange}/> <br></br>
                     <label for ="img"> Image:</label>
                     <textarea rows="4"
-                    className="button"
-                    type="text" 
-                    name="img" 
-                    value={this.state.img} 
-                    onChange={this.handleChange}/> <br></br>
-               
+                        className="button"
+                        type="text" 
+                        name="img" 
+                        value={this.state.img} 
+                        onChange={this.handleChange}/> <br></br>
+                    <button 
+                        className="button-head"
+                        type="submit" 
+                        value="Submit Changes"> Submit Updates 
+                    </button> <br></br>               
             </form>
-            <button 
-                    className="button-head"
-                    type="submit" 
-                    value="Submit Changes"> Submit Updates 
-                </button> <br></br>
-            <button
+                <button
                     className="button-head"
                     type="submit" 
                     value="Delete Profile" 
                     onClick={this.handleDeleteUser}>Delete User?
-            </button>
+                </button>
         </div>
         <Link to="/">
         <img src="https://cdn.dribbble.com/users/24711/screenshots/1476445/mordor_animation_2x.gif" height="60px"/>
