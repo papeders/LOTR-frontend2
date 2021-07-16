@@ -17,13 +17,13 @@ class Header extends Component{
 
                 <div className="header">
                     <div className="head-left">
-                <h1 className="title">One Ring...</h1>
+                <h1 className="title">That One Ring...</h1>
                 <img className="headerPic" src={oring} alt="" height="100"/>
             </div>
         <div className="head-right">
             <div className="login-container">
                 <h3 className="title">Welcome, {this.props.name}!</h3>
-                <Link to="/search">Search by character:</Link>
+                <Link to="/search">Search by character</Link>
                 <br></br>
                 <Link to={`/profile/${this.props.username}`}>Profile</Link>
                 <br></br>
@@ -36,7 +36,7 @@ class Header extends Component{
 
                 <div className="header">
                     <div className="head-left">
-                <h1 className="title">One Ring...</h1>
+                <h1 className="title">Welcome traveler,</h1>
                 <img className="headerPic" src="https://www.reactiongifs.us/wp-content/uploads/2013/10/no_power_here_lotr.gif"alt=""/>
                 
             </div>
