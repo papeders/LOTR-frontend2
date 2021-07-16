@@ -7,7 +7,7 @@ The One Quote App is a React based application that features Lord of the Rings i
 ## Features
 
 - User profiles.
-- Search by character, all 933 of them.
+- Search by character -- all 933 of them.
 - Character information and quotes if applicable.
 
 ## Future Features Planned
@@ -28,7 +28,7 @@ The One Quote App is a React based application that features Lord of the Rings i
 - SearchStream: displays search results, pulled from App state, as a flex list of character names.
 - Header: displays navigation and login form.
 - Home: displays front home page with a sample search result(Gandalf).
-- Profile: displays favorite list and user profile data with edit/delete options.
+- Profile: displays user profile data with edit/delete options.
 - Signup: displays sign up form.
 
 ## Install
