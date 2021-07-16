@@ -3,6 +3,7 @@
 ## Description
 
 The One Quote App is a React based application that features Lord of the Rings information from [The One API](https://the-one-api.dev/), a multi-faceted search system, and backend user authentication.
+<img src="https://res.cloudinary.com/dqutmt6jn/image/upload/v1626445470/Screenshot_2021-07-16_092319_jkqhaa.png" style="width: 800px;"/>
 
 ## Features
 
