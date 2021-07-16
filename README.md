@@ -34,6 +34,10 @@ The One Quote App is a React based application that features Lord of the Rings i
 - Profile: displays user profile data with edit/delete options.
 - Signup: displays sign up form.
 
+## Credit
+[Authorization](https://stackoverflow.com/questions/40988238/sending-the-bearer-token-with-axios)
+[Tables](https://www.w3schools.com/html/html_tables.asp)
+
 ## Install
 To install:
 Download all components and run npm install. <br>
